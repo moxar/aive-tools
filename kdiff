@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-if [[ $# != 1 ]]
+if [[ $# != 0 ]]
 then
   echo "Usage: $(basename $0) <overlay>"
   echo ""
@@ -8,4 +8,4 @@ then
   exit 1
 fi
 
-kubectl diff -k k8s/$(kubectx -c)/$1
+kubectl diff -k k8s/$(kubectx -c) | delta
